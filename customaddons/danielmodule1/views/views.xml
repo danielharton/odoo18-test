@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+     explicit list view definition
+    <record model="ir.ui.view" id="danielmodule1.list">
+      <field name="name">danielmodule1 list</field>
+      <field name="model">danielmodule1.danielmodule1</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+
+     actions opening views on models
+    <record model="ir.actions.act_window" id="danielmodule1.action_window">
+      <field name="name">danielmodule1 window</field>
+      <field name="res_model">danielmodule1.danielmodule1</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+     server action to the one above
+    <record model="ir.actions.server" id="danielmodule1.action_server">
+      <field name="name">danielmodule1 server</field>
+      <field name="model_id" ref="model_danielmodule1_danielmodule1"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+     Top menu item
+    <menuitem name="danielmodule1" id="danielmodule1.menu_root"/>
+     menu categories
+    <menuitem name="Menu 1" id="danielmodule1.menu_1" parent="danielmodule1.menu_root"/>
+    <menuitem name="Menu 2" id="danielmodule1.menu_2" parent="danielmodule1.menu_root"/>
+     actions
+    <menuitem name="List" id="danielmodule1.menu_1_list" parent="danielmodule1.menu_1"
+              action="danielmodule1.action_window"/>
+    <menuitem name="Server to list" id="danielmodule1" parent="danielmodule1.menu_2"
+              action="danielmodule1.action_server"/>
+  </data>
+</odoo>
