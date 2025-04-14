@@ -1,4 +1,4 @@
-from dateutil.relativedelta import relativedelta
+# from dateutil.relativedelta import relativedelta
 
 from odoo import fields,models
 # from odoo.api import readonly
@@ -32,8 +32,10 @@ class EstateProperty(models.Model):
     garage=fields.Boolean()
     garden=fields.Boolean()
     garden_area=fields.Integer()
+    # integerumeu=fields.Integer()
+    # intedfdfsfgerumeu=fields.Integer()
     garden_orientation = fields.Selection([
-          (' ',' ' ), #blank if required=False
+          # (' ',' ' ), #it puts a blank if required=False
             ('north', 'North'),#(how do you reference it in code, how the user sees it in the web browser)
             ('south', 'South'),
             ('east', 'East'),
@@ -50,7 +52,7 @@ class EstateProperty(models.Model):
 
     )
     state=fields.Selection(
-        selection=[
+        selection=[#always set db_name=False when changing Selection fields
       # (' ',' ' ), #blank option if required=False
         ('new','New'),#(how do you reference it in code, how the user sees it in the web browser)
         ('offer_received','Offer received'),
@@ -67,4 +69,5 @@ class EstateProperty(models.Model):
 
 
     )
+    property_type_id=fields.Many2one("estate.property.type",string="Type")
 
