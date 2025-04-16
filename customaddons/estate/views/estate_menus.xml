@@ -5,7 +5,8 @@
                 <menuitem id="test_model_menu_action" action="test_model_action"/>
             </menuitem>
             <menuitem id="settings_menu" name="Settings">
-                <menuitem id="property_types_menu" action="property_types_action" />
+                <menuitem id="property_types_menu" action="property_type_action" />
+                <menuitem id="property_tags_menu" action="property_tag_action" />
             </menuitem>
         </menuitem>
     </data>

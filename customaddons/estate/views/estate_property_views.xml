@@ -49,9 +49,10 @@
                         <h1>
                                 <field name="name"/>
                         </h1>
-
                         <group>
+                            <field name="tag_ids" widget="many2many_tags"/>
                             <group>
+                                <field name="property_type_id"/>
                                 <field name="postcode"/>
                                 <field name="date_availability"/>
                             </group>
@@ -74,6 +75,12 @@
                                     <field name="garden_orientation"/>
                                 </group>
 
+                            </page>
+                            <page string="Other info">
+                                <group>
+                                    <field name="salesperson"/>
+                                    <field name="buyer"/>
+                                </group>
                             </page>
                         </notebook>
                     </sheet>
@@ -107,7 +114,7 @@
             <field name="name">Test action</field>
             <field name="res_model">estate.property</field>
 <!--            This tag is for further specifying what listview to use in case they are more views attached to a single model-->
-<!--            You put the record ID that contains the listview, NOT THE field name-->
+<!--            You put the record ID that contains the listview, NOT THE field name="name"-->
 <!--            <field name="view_id" ref="test_model_list_view"/>-->
             <field name="view_mode">list,form</field>
         </record>

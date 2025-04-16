@@ -1,0 +1,43 @@
+<odoo>
+
+
+     <record id="property_tag_list_view" model="ir.ui.view">
+                <field name="name">property.tag.list.view</field>
+                <field name="model">estate.property.tag</field>
+                <field name="arch" type="xml">
+                    <list string="Properties">
+                            <field name="name" string="Title"/>
+                    </list>
+
+                </field>
+       </record>
+        <record id="property_tag_form_view" model="ir.ui.view">
+            <field name="name">property.tag.form.view</field>
+            <field name="model">estate.property.tag</field>
+            <field name="arch" type="xml">
+                <form string="TestForm">
+                    <sheet>
+                        <h1>
+                                <field name="name"/>
+                        </h1>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+        <record id="property_tag_search_view" model="ir.ui.view">
+                <field name="name">property.tag.search.view</field>
+                <field name="model" >estate.property.tag</field>
+                <field name="arch" type="xml">
+                    <search string="Tests">
+                        <field name="name" string="Title"/>
+                    </search>
+                </field>
+        </record>
+        <record id="property_tag_action" model="ir.actions.act_window">
+            <field name="name">Property tags</field>
+            <field name="res_model">estate.property.tag</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+</odoo>

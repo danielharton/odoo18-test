@@ -8,5 +8,5 @@ class EstatePropertyType(models.Model):
     _name="estate.property.type"
     _description = "descriereetip"
 
-    name=fields.Char(required='true')
+    name=fields.Char(required=True)
 
