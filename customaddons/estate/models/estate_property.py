@@ -80,4 +80,4 @@ class EstateProperty(models.Model):
         copy=False,
 
     )
-    tag_ids=fields.Many2many("estate.property.tags")
+    tag_ids=fields.Many2many("estate.property.tags",string="Tags")
