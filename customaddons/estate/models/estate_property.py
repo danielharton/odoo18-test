@@ -81,3 +81,6 @@ class EstateProperty(models.Model):
 
     )
     tag_ids=fields.Many2many("estate.property.tag",string="Tags")
+    offer_ids=fields.One2many("estate.property.offer",string="Offers",inverse_name="property_id")   # ←inverse_name - point to the field on the offer model)
+
+    

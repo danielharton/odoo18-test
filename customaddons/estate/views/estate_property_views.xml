@@ -1,126 +1,145 @@
 <odoo>
-<!--    <data> &lt;!&ndash;data ,optional tag&ndash;&gt;-->
-        <!--<record id="test_property_action" model="ir.actions.act_window">-->
-        <!--    <field name="name">-->
-        <!--        Test action-->
-        <!--    </field>-->
-        <!--    <field name="res_model">-->
-        <!--        Res_model-->
-        <!--    </field>-->
-        <!--    <field name="view_mode">-->
-        <!--        list,form-->
-        <!--    </field>-->
-        <!--</record>-->
+    <!--    <data> &lt;!&ndash;data ,optional tag&ndash;&gt;-->
+    <!--<record id="test_property_action" model="ir.actions.act_window">-->
+    <!--    <field name="name">-->
+    <!--        Test action-->
+    <!--    </field>-->
+    <!--    <field name="res_model">-->
+    <!--        Res_model-->
+    <!--    </field>-->
+    <!--    <field name="view_mode">-->
+    <!--        list,form-->
+    <!--    </field>-->
+    <!--</record>-->
 
-     <record id="test_model_list_view" model="ir.ui.view">
-                <field name="name">test.model.list.view</field>
-                <field name="model">estate.property</field>
-                <field name="arch" type="xml">
-                    <list string="Properties">
-<!--                        <field name="id"/>-->
-                            <field name="name" string="Title"/>
-                            <field name="postcode" />
-<!--                        <field name="create_uid"/>-->
-<!--                        <field name="create_date"/>-->
-<!--                            <field name="state" />-->
-                            <field name="bedrooms" />
-                            <field name="living_area" string="Living Area (sqm)"/>
-                            <field name="expected_price" />
-                            <field name="selling_price" />
-                            <field name="date_availability" string="Available from"/>
+    <record id="test_model_list_view" model="ir.ui.view">
+        <field name="name">test.model.list.view</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Properties">
+                <!--                        <field name="id"/>-->
+                <field name="name" string="Title"/>
+                <field name="postcode"/>
+                <!--                        <field name="create_uid"/>-->
+                <!--                        <field name="create_date"/>-->
+                <!--                            <field name="state" />-->
+                <field name="bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability" string="Available from"/>
 
-<!--                            <field name="facades" />-->
-<!--                            <field name="garage" />-->
-<!--                            <field name="garden" />-->
-<!--                            <field name="garden_area" />-->
-<!--                            <field name="garden_orientation" />-->
+                <!--                            <field name="facades" />-->
+                <!--                            <field name="garage" />-->
+                <!--                            <field name="garden" />-->
+                <!--                            <field name="garden_area" />-->
+                <!--                            <field name="garden_orientation" />-->
 
 
-                    </list>
+            </list>
 
-                </field>
-       </record>
-        <record id="test_model_form_view" model="ir.ui.view">
-            <field name="name">test.model.form.view</field>
-            <field name="model">estate.property</field>
-            <field name="arch" type="xml">
-                <form string="TestForm">
-                    <sheet>
-                        <h1>
-                                <field name="name"/>
-                        </h1>
-                        <field name="tag_ids" widget="many2many_tags"/>
+        </field>
+    </record>
+    <record id="test_model_form_view" model="ir.ui.view">
+        <field name="name">test.model.form.view</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="TestForm">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <field name="tag_ids" widget="many2many_tags"/>
+                    <group>
+
                         <group>
-
-                            <group>
-                                <field name="property_type_id"/>
-                                <field name="postcode"/>
-                                <field name="date_availability"/>
-                            </group>
-                            <group>
-                                <field name="expected_price"/>
-                                <field name="selling_price"/>
-
-                            </group>
+                            <field name="property_type_id"/>
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
                         </group>
-                        <notebook>
-                            <page string="Description">
-                                <group>
-                                    <field name="description"/>
-                                    <field name="bedrooms"/>
-                                    <field name="living_area" string="Living Area (sqm)"/>
-                                    <field name="facades"/>
-                                    <field name="garage"/>
-                                    <field name="garden"/>
-                                    <field name="garden_area" string="Garden Area (sqm)"/>
-                                    <field name="garden_orientation"/>
-                                </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
 
-                            </page>
-                            <page string="Other info">
-                                <group>
-                                    <field name="salesperson"/>
-                                    <field name="buyer"/>
-                                </group>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field name="description"/>
+                                <field name="bedrooms"/>
+                                <field name="living_area" string="Living Area (sqm)"/>
+                                <field name="facades"/>
+                                <field name="garage"/>
+                                <field name="garden"/>
+                                <field name="garden_area" string="Garden Area (sqm)"/>
+                                <field name="garden_orientation"/>
+                            </group>
 
-            </field>
-        </record>
-        <record id="test_model_search_view" model="ir.ui.view">
-                <field name="name">test.model.search.view</field>
-                <field name="model" >estate.property</field>
-                <field name="arch" type="xml">
-                    <search string="Tests">
-                        <field name="name" string="Title"/>
-                        <field name="postcode"/>
-                        <field name="expected_price"/>
-                        <field name="bedrooms"/>
-                        <field name="living_area" string="Living Area (sqm)"/>
-                        <field name="facades"/>
-                        <filter name="available_properties" string="Available properties"
-                                domain="['|',
+                        </page>
+                        <page string="Offers">
+                            <field name="offer_ids" nolabel="1">
+                                <list string="Offers" editable="bottom">
+                                    <field name="price"/>
+                                    <field name="partner_id"/>
+                                    <field name="status"/>
+                                </list>
+                                <form string="Offer">
+                                    <sheet>
+                                        <group>
+                                            <field name="price"/>
+                                            <field name="partner_id"/>
+                                            <field name="status"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Other info">
+                            <group>
+                                <field name="salesperson"/>
+                                <field name="buyer"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+    <record id="test_model_search_view" model="ir.ui.view">
+        <field name="name">test.model.search.view</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Tests">
+                <field name="name" string="Title"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="facades"/>
+                <filter name="available_properties" string="Available properties"
+                        domain="['|',
                                                 ('state','=','new'),
                                               ('state','=','offer_received' )
-                                        ]" />
-                        <group expand="1" string="Group by">
-                                <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}" />
-                        </group>
-                    </search>
-                </field>
-        </record>
-        <record id="test_model_action" model="ir.actions.act_window">
-            <field name="name">Test action</field>
-            <field name="res_model">estate.property</field>
-<!--            This tag is for further specifying what listview to use in case they are more views attached to a single model-->
-<!--            You put the record ID that contains the listview, NOT THE field name="name"-->
-<!--            <field name="view_id" ref="test_model_list_view"/>-->
-            <field name="view_mode">list,form</field>
-        </record>
+                                        ]"/>
+                <group expand="1" string="Group by">
+                    <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="test_model_action" model="ir.actions.act_window">
+        <field name="name">Test action</field>
+        <field name="res_model">estate.property</field>
+        <!--            This tag is for further specifying what listview to use in case they are more views attached to a single model-->
+        <!--            You put the record ID that contains the listview, NOT THE field name="name"-->
+        <!--            <field name="view_id" ref="test_model_list_view"/>-->
+        <field name="view_mode">list,form</field>
+    </record>
 
-        <!--<menuitem id="test_model_menu_action" action="test_model_action"/>--> <!-- apare in created menus un text numit test action-->
+    <!--<menuitem id="test_model_menu_action" action="test_model_action"/>--> <!-- apare in created menus un text numit test action-->
 
-<!--    </data>-->
+    <!--    </data>-->
 </odoo>
